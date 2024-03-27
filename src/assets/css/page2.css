@@ -1,0 +1,185 @@
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+    border: none;
+}
+
+.cardList {
+    --card-width: 53.4rem;
+    --card-height: 28.2rem;
+    --card-transition-duration: 800ms;
+    --card-transition-easing: ease;
+    /* position: absolute; */
+    width: calc(3 * var(--card-width));
+    height: var(--card-height);
+}
+
+.cardList .cardList__btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.cardList .cardList__btn.btn--left {
+    left: 11%;
+}
+
+.cardList .cardList__btn.btn--right {
+    right: 11%;
+}
+
+.cardList .cardList__btn .icon {
+    width: 100%;
+    height: 100%;
+}
+
+.cardList .cardList__btn .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.cardList .cards__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 100rem;
+}
+
+.cardList .card {
+    --card-translateY-offset: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateX(var(--card-translateX-offset)) translateY(var(--card-translateY-offset)) rotateY(var(--card-rotation-offset)) scale(var(--card-scale-offset));
+    display: none;
+    width: var(--card-width);
+    height: var(--card-height);
+    transition: transform var(--card-transition-duration) var(--card-transition-easing);
+    user-select: none;
+}
+
+.cardList .card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1;
+    transition: opacity var(--card-transition-duration) var(--card-transition-easing);
+    opacity: calc(1 - var(--opacity));
+}
+
+.cardList .card__image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cardList .card__image img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.cardList .card.current--card {
+    display: inline-block;
+    z-index: 50 !important;
+    --current-card-rotation-offset: 0;
+    --card-translateX-offset: 0;
+    --card-rotation-offset: var(--current-card-rotation-offset);
+    --card-scale-offset: 1;
+    --opacity: 1;
+    cursor: pointer;
+}
+
+.cardList .card.previous--card {
+    display: inline-block;
+    --card-translateX-offset: calc(-1 * var(--card-width) * .9);
+    --card-rotation-offset: 0;
+}
+
+.cardList .card.next--card {
+    display: inline-block;
+    --card-translateX-offset: calc(var(--card-width) * .9);
+    --card-rotation-offset: 0;
+}
+
+.cardList .card.previous--card,
+.cardList .card.next--card {
+    --card-scale-offset: 0.74;
+    --opacity: 0.74;
+    cursor: pointer;
+}
+
+.cardList .name {
+    position: absolute;
+    top: calc(100% + 2rem);
+    width: 100%;
+    color: #8DD2DE;
+    text-align: center;
+    text-shadow: 0px -1px 0.9px rgba(135, 34, 40, 0.79), 0px 1px 1px rgba(0, 0, 0, 0.25);
+    font-family: "TT Interphases Pro Mono Trl";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.cardList .card.current--card .name {
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    .cardList {
+        --card-width: 35rem;
+        --card-height: 45.6rem;
+        height: 45.6rem;
+    }
+
+    .cardList .card.previous--card {
+        --card-translateX-offset: calc(-1 * var(--card-width) * .5);
+        --card-rotation-offset: 0;
+    }
+
+    .cardList .card.next--card {
+        --card-translateX-offset: calc(var(--card-width) * .5);
+        --card-rotation-offset: 0;
+    }
+
+    .cardList .cardList__btn {
+        top: 46%;
+    }
+
+    .cardList .cardList__btn.btn--left {
+        left: 2%;
+    }
+
+    .cardList .cardList__btn.btn--right {
+        right: 2%;
+    }
+
+    .cardList .name {
+        display: none;
+        font-size: 2.6rem;
+        top: calc(100% + 5.9rem);
+    }
+}
+
+.notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
