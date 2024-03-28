@@ -109,7 +109,7 @@ export const SnackbarDialog = ({
                     </Box>
                   </Box>
                   <Box className={classes.statusBox}>
-                    <Box className={classes.dexxTitle}>DEXX - Etherscan</Box>
+                    <Box className={classes.dexxTitle}>XXXX - Etherscan</Box>
                   </Box>
                 </>
               }

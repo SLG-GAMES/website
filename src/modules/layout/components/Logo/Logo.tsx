@@ -15,7 +15,7 @@ export const Logo = () => {
       className={classes.root}
     >
       <img
-        alt="DEXX"
+        alt=""
         className={classNames(classes.img, classes.ableDark)}
         src={mobile ? mobileLogo:LogoPng}
       />
