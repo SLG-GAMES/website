@@ -72,7 +72,7 @@ export const Page2 = () => {
     cryptosamurai: 'https://cryptosamurai.biz/#/home',
     genuniverse: 'https://www.genuniverse.io/',
     puffverse: 'https://puffverse.pro/',
-    anotherworld:''
+    anotherworld:'https://www.anotherworld.game/'
   };
 
   return (
@@ -219,14 +219,16 @@ export const Page2 = () => {
             </div>
           </a>
 
-          <a href={dataLink.anotherworld} target='_blank' rel='noopener noreferrer'>
-            <div className='card'>
-              <div className='card__image' card-idx='15'>
-                <img className={classes.pointer} src={isPc ? anotherworld : h5_anotherworld} alt='' />
-                <div className='name'>Another World</div>
+
+           <a href={dataLink.anotherworld} target='_blank' rel='noopener noreferrer'>
+              <div className='card'>
+                <div className='card__image' card-idx='15'>
+                  <img className={classes.pointer} src={isPc ? anotherworld : h5_anotherworld} alt='' />
+                  <div className='name'>Another World</div>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+
 
 
         </div>
@@ -305,10 +307,12 @@ export const Page2 = () => {
           <i className='wh-all fit-abs5'></i>
           <img className='fit-abs5' src={puffverseIcon} alt='' />
         </div>
-        <div className='icon' card-idx='14'>
-          <i className='wh-all fit-abs5'></i>
-          <img className='fit-abs5' src={anotherworldIcon} alt='' />
-        </div>
+
+          <div className='icon' card-idx='14'>
+            <i className='wh-all fit-abs5'></i>
+            <img className='fit-abs5' src={anotherworldIcon} alt='' />
+          </div>
+
       </div>
     </div>
   );
